@@ -1,4 +1,4 @@
-# olist-ecommerce-analytics
+# olist-ecommerce-analytics (EDA)
 # 🛒 Brazilian E-Commerce (Olist) Exploratory Data Analysis
 
 A comprehensive end-to-end Exploratory Data Analysis (EDA) of Brazilian e-commerce operations using the Olist Public Dataset. This project uncovers actionable business insights across commercial performance, customer purchasing dynamics, logistics turnaround, and review sentiment.
