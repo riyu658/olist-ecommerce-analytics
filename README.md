@@ -72,11 +72,11 @@ The analysis was conducted in the following sequence:
 ## 📊 KPI Snapshot
 
 - **Total Orders (delivered):** ~96,000
-- **Total Revenue:** R$ [run KPI cell in Notebook 03]
-- **Average Order Value:** R$ [run KPI cell]
-- **Average Delivery Time:** 12.1 days
-- **On-Time Rate:** 93.4% (6.6% late)
-- **Repeat Customer Rate:** [run KPI cell]
+- **Total Revenue:** R$ 13,167,086
+- **Average Order Value:** R$ 136.90
+- **Average Delivery Time:** 11.9 days
+- **On-Time Rate:** 93.5%  (late: 6.5%)
+- **Repeat Customer Rate:** 3.0%  (2,793 of 9 customers)
 
 ---
 
