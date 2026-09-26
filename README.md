@@ -1,4 +1,3 @@
-# olist-ecommerce-analytics (EDA)
 # 📦 Exploratory Data Analysis — Olist Brazilian E-Commerce
 
 This project presents a complete Exploratory Data Analysis (EDA) of the **Olist
@@ -42,7 +41,7 @@ The Olist dataset contains multiple interconnected tables (~120 MB, 2016–2018)
 | Category Translation | Portuguese → English category names |
 
 These were merged using common keys (`order_id`, `customer_id`, `product_id`,
-`seller_id`) into one unified master dataset of ~96,000 delivered orders.
+`seller_id`) into one unified master dataset of 96,182 delivered orders.
 
 📥 **Source:** [Brazilian E-Commerce Public Dataset by Olist — Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 (Dataset not included in this repo — download from Kaggle.)
@@ -76,7 +75,7 @@ The analysis was conducted in the following sequence:
 - **Average Order Value:** R$ 136.90
 - **Average Delivery Time:** 11.9 days
 - **On-Time Rate:** 93.5%  (late: 6.5%)
-- **Repeat Customer Rate:** 3.0%  (2,793 of 9 customers)
+- **Repeat Customer Rate:** 3.0%  (2,793 of ~93,0000 customers)
 
 ---
 
@@ -96,6 +95,10 @@ The analysis was conducted in the following sequence:
    remote northern states (RR, AP, AM) carry the heaviest relative burden.
 8. **📉 Freight cost barely hurts satisfaction (4.21 → 4.04 across buckets) —
    lateness hurts ~10× more.** Fix delays, not freight prices.
+9. **🔁 Retention is alarmingly low — only 3.0% of customers ever reorder.**
+   Just 2,793 of ~93,000 customers place a second order, meaning the
+   marketplace wins transactions but not loyalty. Combined with polarized
+   reviews, every service failure effectively loses a customer permanently.
 
 ---
 
@@ -108,7 +111,7 @@ The analysis was conducted in the following sequence:
 - **Introduce packaging/QA standards** for fragile, low-rated categories
 - **Expand beyond São Paulo** into under-penetrated North/Northeast regions
 - **Push credit-card installment options** at checkout — the preferred behavior
-- **Protect low-value orders** from uneconomical freight (freight &gt; item price
+- **Protect low-value orders** from uneconomical freight (freight > item price
   for ~3% of orders)
 
 ---
@@ -133,9 +136,10 @@ Python · Pandas · NumPy · Matplotlib · Seaborn · Google Colab
 
 - Data covers **2016–2018 only** — marketplace conditions have since changed
 - **No cost/margin data** — we see revenue and satisfaction, not profitability
-- **Review non-response bias** — only ~40% of orders have reviews
+- Review scores may reflect extreme experiences more than typical ones —
+  1★ and 5★ dominate the distribution (non-response bias can't be ruled out)
 - A few Portuguese categories mapped to `'unknown'` after translation
-- The &gt;100% freight bucket holds only ~3k orders (3%) — small-sample effect
+- The >100% freight bucket holds only ~3k orders (3%) — small-sample effect
 
 ---
 
@@ -150,4 +154,4 @@ Python · Pandas · NumPy · Matplotlib · Seaborn · Google Colab
 
 ## 👤 Author
 
-[Your Name] · [LinkedIn / GitHub]
+Riyu · 
