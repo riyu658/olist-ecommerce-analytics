@@ -47,62 +47,53 @@ While freight cost variations show minimal impact on review scores (4.21 vs 4.04
         ├──> 03_exploratory_analysis.ipynb (Statistical distributions, state mapping, correlation)
         └──> 04_executive_summary.ipynb    (Strategic recommendations, LTV analysis, limitations)
 ```
-Feature Engineering Highlights
-delivery_days: Elapsed days from order_purchase_timestamp to customer delivery.
+### Feature Engineering Highlights
 
-delivery_delay_days: Delta between actual delivery date and estimated delivery date (actual - estimated).
+* `delivery_days`: Elapsed days from `order_purchase_timestamp` to customer delivery.
+* `delivery_delay_days`: Delta between actual delivery date and estimated delivery date (`actual - estimated`).
+* `was_late`: Boolean indicator (`delivery_delay_days > 0`).
+* `freight_ratio`: `total_freight / total_price` evaluating relative shipping burden.
 
-was_late: Boolean indicator (delivery_delay_days > 0).
+---
 
-freight_ratio: total_freight / total_price evaluating relative shipping burden.
+## 🎯 Key Visualizations (Highlights)
 
-🎯 Key Visualizations (Highlights)
-(Insert 2-3 key charts or visual outputs here from Notebook 03: e.g., On-Time vs. Late Review Distribution, Revenue Concentration Map, or Delay Days vs. Review Score)
+> *(Insert 2-3 key charts or visual outputs here from Notebook 03: e.g., On-Time vs. Late Review Distribution, Revenue Concentration Map, or Delay Days vs. Review Score)*
 
-📁 Data Source & Setup
-The dataset used in this project is the Brazilian E-Commerce Public Dataset by Olist hosted on Kaggle, consisting of 9 CSV files:
+---
 
-olist_customers_dataset.csv
+## 📁 Data Source & Setup
 
-olist_geolocation_dataset.csv
+The dataset used in this project is the **Brazilian E-Commerce Public Dataset by Olist** hosted on Kaggle, consisting of **9 CSV files**:
 
-olist_order_items_dataset.csv
+* `olist_customers_dataset.csv`
+* `olist_geolocation_dataset.csv`
+* `olist_order_items_dataset.csv`
+* `olist_order_payments_dataset.csv`
+* `olist_order_reviews_dataset.csv`
+* `olist_orders_dataset.csv`
+* `olist_products_dataset.csv`
+* `olist_sellers_dataset.csv`
+* `product_category_name_translation.csv`
 
-olist_order_payments_dataset.csv
+### How to Access the Data:
+1. Download the raw CSV files from the [Kaggle Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
+2. **Local Environment:** Place all 9 `.csv` files inside the `data/raw/` directory.
+3. **Google Colab Environment:** Upload all 9 `.csv` files into your active session storage or mount your Google Drive folder path.
 
-olist_order_reviews_dataset.csv
+---
 
-olist_orders_dataset.csv
+## ⚠️ Data Limitations & Risk Factors
 
-olist_products_dataset.csv
+* **Historical Window:** Data reflects 2016–2018 market dynamics; current inflation and logistics infrastructure differ.
+* **Margin Blindspot:** Lacks COGS (Cost of Goods Sold) and marketing spend; recommendations focus on top-line growth and satisfaction rather than net margin.
+* **Selection Bias:** Review responses skew toward extreme experiences (1★ and 5★ polarization).
 
-olist_sellers_dataset.csv
+---
 
-product_category_name_translation.csv
+## ⚙️ How to Reproduce
 
-How to Access the Data:
-Download the raw CSV files from the Kaggle Dataset.
-
-Local Environment: Place all 9 .csv files inside the data/raw/ directory.
-
-Google Colab Environment: Upload all 9 .csv files into your active session storage or mount your Google Drive folder path.
-
-⚠️ Data Limitations & Risk Factors
-Historical Window: Data reflects 2016–2018 market dynamics; current inflation and logistics infrastructure differ.
-
-Margin Blindspot: Lacks COGS (Cost of Goods Sold) and marketing spend; recommendations focus on top-line growth and satisfaction rather than net margin.
-
-Selection Bias: Review responses skew toward extreme experiences (1★ and 5★ polarization).
-
-⚙️ How to Reproduce
-Clone the repository:
-
-Bash
-git clone [https://github.com/your-username/olist-eda-strategy.git](https://github.com/your-username/olist-eda-strategy.git)
-cd olist-eda-strategy
-Install required dependencies:
-
-Bash
-pip install -r requirements.txt
-Run notebooks sequentially:
-Open and execute the notebooks inside /notebooks/ in order (01 through 04).
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/your-username/olist-eda-strategy.git](https://github.com/your-username/olist-eda-strategy.git)
+   cd olist-eda-strategy
