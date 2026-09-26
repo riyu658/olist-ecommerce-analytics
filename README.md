@@ -9,7 +9,7 @@
 
 ---
 
-## Executive Summary
+## 📌 Executive Summary
 
 An analysis of **96,182 delivered orders** across Brazil (2016–2018) reveals a core operational insight: **Delivery reliability, not freight price, drives customer retention and satisfaction.**
 
@@ -77,7 +77,7 @@ The dataset used in this project is the **Brazilian E-Commerce Public Dataset by
 * `olist_sellers_dataset.csv`
 * `product_category_name_translation.csv`
 
-### How to Access the Data:
+### 🔗 How to Access the Data:
 1. Download the raw CSV files from the [Kaggle Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
 2. **Local Environment:** Place all 9 `.csv` files inside the `data/raw/` directory.
 3. **Google Colab Environment:** Upload all 9 `.csv` files into your active session storage or mount your Google Drive folder path.
