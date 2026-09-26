@@ -94,7 +94,8 @@ The dataset used in this project is the **Brazilian E-Commerce Public Dataset by
 ## ⚙️ How to Reproduce
 
 1. **Clone the repository:**
-   ```bash
-  git clone https://github.com/riyu658/olist-ecommerce-analytics.git
-      cd olist-ecommerce-analytics
+```bash
+git clone https://github.com/riyu658/olist-ecommerce-analytics.git
+cd olist-ecommerce-analytics
+```
 
