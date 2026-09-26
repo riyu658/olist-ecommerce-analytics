@@ -1,157 +1,69 @@
-# 📦 Exploratory Data Analysis — Olist Brazilian E-Commerce
+# 📦 Olist E-Commerce Strategy & Logistics EDA
+> **Transforming 96k+ Transactions into SLA Optimization, Customer Retention, and Geographic Growth Strategies**
 
-This project presents a complete Exploratory Data Analysis (EDA) of the **Olist
-Brazilian E-Commerce Public Dataset**. The goal of this analysis is to transform
-raw transactional data into meaningful business insights that support
-data-driven decision-making.
-
-Using Python and data visualization techniques, this project evaluates customer
-satisfaction, logistics efficiency, product performance, geographic
-distribution, and payment behavior.
+![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=flat&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=flat&logo=pandas)
+![Status](https://img.shields.io/badge/Status-Completed-success)
 
 ---
 
-## 📌 Project Objective
+## Executive Summary
+An analysis of **96,182 delivered orders** across Brazil (2016–2018) reveals a core operational insight: **Delivery reliability, not freight price, drives customer retention and satisfaction.** 
 
-The primary objective of this project is to:
-
-- Analyze overall order volume and trends over time
-- Identify top-performing and lowest-rated product categories
-- Evaluate delivery efficiency and its impact on customer satisfaction
-- Study payment distribution patterns
-- Analyze freight cost structure by price and geography
-- Generate business-level insights and recommendations
+While freight cost variations show minimal impact on review scores (4.21 vs 4.04 across freight buckets), **delivery delays trigger an immediate ~2.0 point collapse in review scores** (4.29 on-time vs. 2.28 late), with 52.3% of delayed orders receiving a 1-star review. With marketplace retention standing at a critical low of **3.0% (2,793 repeat buyers out of ~93,000)**, service failures permanently erode customer Lifetime Value (LTV).
 
 ---
 
-## 📂 Dataset Overview
-
-The Olist dataset contains multiple interconnected tables (~120 MB, 2016–2018):
-
-| Table | Contents |
-|---|---|
-| Customers | Customer IDs & locations (27 states) |
-| Orders | Status & 5 timestamps per order |
-| Order Items | Products, prices, freight per order |
-| Payments | Payment type, installments, value |
-| Reviews | Scores (1–5) & optional comments |
-| Products | Attributes & Portuguese categories |
-| Sellers | Seller IDs & locations |
-| Geolocation | Zip-code coordinates (1M+ rows) |
-| Category Translation | Portuguese → English category names |
-
-These were merged using common keys (`order_id`, `customer_id`, `product_id`,
-`seller_id`) into one unified master dataset of 96,182 delivered orders.
-
-📥 **Source:** [Brazilian E-Commerce Public Dataset by Olist — Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
-(Dataset not included in this repo — download from Kaggle.)
+## 📊 Business Problem & Core Objectives
+1. **Identify Retention Drivers:** Pinpoint why 97% of customers purchase only once.
+2. **Quantify Delivery SLA Impact:** Measure the exact elasticity between shipping delays and review score decay.
+3. **Optimize Pricing & Freight Strategy:** Determine if freight costs stifle conversion or customer satisfaction.
+4. **Geographic Arbitrage:** Evaluate logistics bottlenecks across state clusters (e.g., São Paulo vs. North/Northeast).
 
 ---
 
-## ⚙️ Project Workflow
+## 📈 Strategic Insights & Impact Matrix
 
-The analysis was conducted in the following sequence:
-
-1. **Data loading and inspection** — shapes, dtypes, missing values, duplicates, join-key validation
-2. **Data cleaning** — datetime parsing, geolocation dedup (26%), missing-value strategy, category translation
-3. **Multi-table merging** — orders + customers + items + payments + reviews + products + sellers
-4. **Feature engineering** — delivery days, estimated delay, `was_late` flag, freight %, purchase month
-5. **Exploratory analysis** — trends, delivery vs. reviews, categories, geography, payments, freight
-6. **Business interpretation** — insights, recommendations, limitations
-
-| Notebook | Focus |
-|---|---|
-| `01_data_understanding.ipynb` | Schema, data quality, table relationships |
-| `02_data_cleaning.ipynb` | Cleaning, translation, master dataset build |
-| `03_exploratory_analysis.ipynb` | Full exploratory analysis & visualizations |
-| `04_insights_conclusion.ipynb` | Findings, recommendations, limitations |
+| Strategic Area | Key Metric / Observation | Business Impact | Actionable Recommendation |
+| :--- | :--- | :--- | :--- |
+| **Logistics SLAs** | 52.3% of late orders receive 1★ reviews; on-time avg is 4.29 vs 2.28 late. | Unreliable delivery drives customer churn and brand erosion. | Reallocate freight subsidy budgets toward carrier SLA enforcement and penalty clauses. |
+| **Customer Retention** | **3.0% repeat customer rate** (2,793 repeat buyers). | High Customer Acquisition Cost (CAC) with non-existent LTV recovery. | Build post-purchase email flows, loyalty tiers, and automated recovery offers for 1-star review customers. |
+| **Geographic Density** | **São Paulo (SP) holds 42%** of order volume. | Growth capped in core region; high shipping friction in North/Northeast. | Establish fulfillment nodes in Northeast hubs (e.g., Bahia/Pernambuco) to reduce regional transit times. |
+| **Pricing & Freight** | Freight > Item Price for 3% of orders; freight cost variation causes only -0.17 score drop. | Customers tolerate reasonable freight if items arrive on time. | Set minimum basket thresholds (R$50+) for freight discounts rather than flat shipping subsidies. |
 
 ---
 
-## 📊 KPI Snapshot
+## 🛠 Project Workflow & Technical Architecture
+[Raw Olist Tables (8 CSVs)]
+│
+├──> 01_schema_validation.ipynb  (Key checks, join validation, cardinality)
+├──> 02_cleaning_feature_eng.ipynb (Dedup, EN translation, date parsing, delta metrics)
+├──> 03_exploratory_analysis.ipynb (Statistical distributions, state mapping, correlation)
+└──> 04_executive_summary.ipynb    (Strategic recommendations, LTV analysis, limitations)
 
-- **Total Orders (delivered):** ~96,000
-- **Total Revenue:** R$ 13,167,086
-- **Average Order Value:** R$ 136.90
-- **Average Delivery Time:** 11.9 days
-- **On-Time Rate:** 93.5%  (late: 6.5%)
-- **Repeat Customer Rate:** 3.0%  (2,793 of ~93,0000 customers)
-
----
-
-## 📈 Key Insights
-
-1. **⏱️ Delivery speed is the #1 satisfaction driver.** Late orders average
-   **2.28** vs **4.29** on-time. **52.3% of late deliveries receive a 1-star
-   review**, vs only 6.6% of on-time orders.
-2. **⭐ Reviews are polarized** — 1★ and 5★ dominate; customers rarely feel neutral.
-3. **🏷️ Lowest-rated categories:** computer accessories, furniture/decor,
-   telephony (≥200 orders each) — likely shipping-sensitive goods.
-4. **🛏️ Volume leaders:** bed/bath/table & health/beauty dominate order volume.
-5. **🗺️ Geographic concentration:** São Paulo (SP) alone accounts for **42% of
-   all orders**.
-6. **💳 Credit card dominates payments**, with ~2.9 installments per order on average.
-7. **📦 Freight is flat (R$20–80)** regardless of item price — cheap items and
-   remote northern states (RR, AP, AM) carry the heaviest relative burden.
-8. **📉 Freight cost barely hurts satisfaction (4.21 → 4.04 across buckets) —
-   lateness hurts ~10× more.** Fix delays, not freight prices.
-9. **🔁 Retention is alarmingly low — only 3.0% of customers ever reorder.**
-   Just 2,793 of ~93,000 customers place a second order, meaning the
-   marketplace wins transactions but not loyalty. Combined with polarized
-   reviews, every service failure effectively loses a customer permanently.
+### Feature Engineering Highlights
+* **`delivery_days`**: Elapsed days from `order_purchase_timestamp` to customer delivery.
+* **`delivery_delay_days`**: Delta between actual delivery date and estimated delivery date (`actual - estimated`).
+* **`was_late`**: Boolean indicator (`delivery_delay_days > 0`).
+* **`freight_ratio`**: `total_freight / total_price` evaluating relative shipping burden.
 
 ---
 
-## 💡 Business Recommendations
+## 🎯 Key Visualizations (Highlights)
 
-- **Prioritize logistics SLAs over freight subsidies** — lateness (−2 pts) hurts
-  far more than shipping cost (−0.2 pts)
-- **Tighten delivery estimates** — orders arrive a median 12 days early, so
-  estimates have slack that better routing could absorb
-- **Introduce packaging/QA standards** for fragile, low-rated categories
-- **Expand beyond São Paulo** into under-penetrated North/Northeast regions
-- **Push credit-card installment options** at checkout — the preferred behavior
-- **Protect low-value orders** from uneconomical freight (freight > item price
-  for ~3% of orders)
+> *(Insert 2-3 key charts here: e.g., On-Time vs Late Review Distribution, Revenue Concentration Map, or Delay Days vs Review Score)*
 
 ---
 
-## 🛠 Tools & Technologies
-
-Python · Pandas · NumPy · Matplotlib · Seaborn · Google Colab
-
----
-
-## 🔮 Future Scope
-
-- Customer segmentation using **RFM analysis**
-- **Sales forecasting** models
-- **Churn prediction**
-- **Recommendation system**
-- Interactive dashboards (**Power BI / Tableau**)
+## ⚠️ Data Limitations & Risk Factors
+* **Historical Window:** Data reflects 2016–2018 market dynamics; current inflation and logistics infrastructure differ.
+* **Margin Blindspot:** Lacks COGS (Cost of Goods Sold) and marketing spend; recommendations focus on top-line and satisfaction rather than net margin.
+* **Selection Bias:** Review responses skew toward extreme experiences (1★ and 5★ polarization).
 
 ---
 
-## ⚠️ Limitations
-
-- Data covers **2016–2018 only** — marketplace conditions have since changed
-- **No cost/margin data** — we see revenue and satisfaction, not profitability
-- Review scores may reflect extreme experiences more than typical ones —
-  1★ and 5★ dominate the distribution (non-response bias can't be ruled out)
-- A few Portuguese categories mapped to `'unknown'` after translation
-- The >100% freight bucket holds only ~3k orders (3%) — small-sample effect
-
----
-
-## ▶️ How to Run
-
-1. Download the dataset from [Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
-2. Open the notebooks in order in Colab or Jupyter
-3. Set `DATA_PATH` in Notebooks 01 & 02 to your CSV location
-4. Run top-to-bottom — Notebook 02 saves `olist_master.csv`, which 03 & 04 load
-
----
-
-## 👤 Author
-
-Riyu · www.linkedin.com/in/riyu-purty
+## ⚙️ How to Reproduce
+1. Clone repository: `git clone https://github.com/your-username/olist-eda-strategy.git`
+2. Download Olist dataset from [Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) into `/data/raw/`.
+3. Install dependencies: `pip install -r requirements.txt`
+4. Run notebooks sequentially in `/notebooks/`.
