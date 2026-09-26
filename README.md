@@ -40,12 +40,10 @@ While freight cost variations show minimal impact on review scores (4.21 vs 4.04
 ## 🛠 Project Workflow & Technical Architecture
 
 ```text
-[Raw Olist Tables (9 CSVs)] 
-        │
-        ├─→ [01_schema_validation.ipynb](notebooks/01_schema_validation.ipynb)
-        ├─→ [02_cleaning_feature_eng.ipynb](notebooks/02_cleaning_feature_eng.ipynb)
-        ├─→ [03_exploratory_analysis.ipynb](notebooks/03_exploratory_analysis.ipynb)
-        └─→ [04_executive_summary.ipynb](notebooks/04_executive_summary.ipynb)
+├─→ [01_schema_validation.ipynb](notebooks/01_schema_validation.ipynb)
+├─→ [02_cleaning_feature_eng.ipynb](notebooks/02_cleaning_feature_eng.ipynb)
+├─→ [03_exploratory_analysis.ipynb](notebooks/03_exploratory_analysis.ipynb)
+└─→ [04_executive_summary.ipynb](notebooks/04_executive_summary.ipynb)
 ```
 ### Feature Engineering Highlights
 
