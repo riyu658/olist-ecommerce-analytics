@@ -61,6 +61,7 @@ While freight cost variations show minimal impact on review scores (4.21 vs 4.04
 ![Late Delivery Rate by Region](outputs/regional_late_rate.png)
 
 ![Bottom 10 Lowest-Rated Categories](outputs/bottom_categories.png)
+
 ---
 
 ## 📁 Data Source & Setup
