@@ -41,6 +41,7 @@ While freight cost variations show minimal impact on review scores (4.21 vs 4.04
         ├──> 02_cleaning_feature_eng.ipynb (Dedup, EN translation, date parsing, delta metrics)
         ├──> 03_exploratory_analysis.ipynb (Statistical distributions, state mapping, correlation)
         └──> 04_executive_summary.ipynb    (Strategic recommendations, LTV analysis, limitations)
+```
 
 ### Feature Engineering Highlights
 * **`delivery_days`**: Elapsed days from `order_purchase_timestamp` to customer delivery.
