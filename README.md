@@ -35,7 +35,7 @@ While freight cost variations show minimal impact on review scores (4.21 vs 4.04
 
 ## 🛠 Project Workflow & Technical Architecture
 ```text
-[Raw Olist Tables (8 CSVs)] 
+[Raw Olist Tables (9 CSVs)] 
         │
         ├──> 01_schema_validation.ipynb  (Key checks, join validation, cardinality)
         ├──> 02_cleaning_feature_eng.ipynb (Dedup, EN translation, date parsing, delta metrics)
