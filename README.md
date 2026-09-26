@@ -58,8 +58,11 @@ While freight cost variations show minimal impact on review scores (4.21 vs 4.04
 
 ## 🎯 Key Visualizations (Highlights)
 
-> *(Insert 2-3 key charts or visual outputs here from Notebook 03: e.g., On-Time vs. Late Review Distribution, Revenue Concentration Map, or Delay Days vs. Review Score)*
+![Delivery Delay Impact on Reviews](outputs/delay_vs_review.png)
 
+![Late Delivery Rate by Region](outputs/regional_late_rate.png)
+
+![Bottom 10 Lowest-Rated Categories](outputs/bottom_categories.png)
 ---
 
 ## 📁 Data Source & Setup
