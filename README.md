@@ -95,5 +95,5 @@ The dataset used in this project is the **Brazilian E-Commerce Public Dataset by
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/your-username/olist-eda-strategy.git](https://github.com/your-username/olist-eda-strategy.git)
-   cd olist-eda-strategy
+  git clone https://github.com/your-username/olist-ecommerce-analytics.git
+      cd olist-ecommerce-analytics
