@@ -154,4 +154,4 @@ Python · Pandas · NumPy · Matplotlib · Seaborn · Google Colab
 
 ## 👤 Author
 
-Riyu · 
+Riyu · www.linkedin.com/in/riyu-purty
