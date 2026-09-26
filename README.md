@@ -39,12 +39,12 @@ While freight cost variations show minimal impact on review scores (4.21 vs 4.04
 
 ## 🛠 Project Workflow & Technical Architecture
 
-```text
-├─→ [01_schema_validation.ipynb](notebooks/01_schema_validation.ipynb)
-├─→ [02_cleaning_feature_eng.ipynb](notebooks/02_cleaning_feature_eng.ipynb)
-├─→ [03_exploratory_analysis.ipynb](notebooks/03_exploratory_analysis.ipynb)
-└─→ [04_executive_summary.ipynb](notebooks/04_executive_summary.ipynb)
-```
+**Pipeline:**
+- [01_schema_validation.ipynb](notebooks/01_schema_validation.ipynb) — Key checks, join validation, cardinality
+- [02_cleaning_feature_eng.ipynb](notebooks/02_cleaning_feature_eng.ipynb) — Dedup, EN translation, date parsing, delta metrics
+- [03_exploratory_analysis.ipynb](notebooks/03_exploratory_analysis.ipynb) — Statistical distributions, state mapping, correlation
+- [04_executive_summary.ipynb](notebooks/04_executive_summary.ipynb) — Strategic recommendations, LTV analysis, limitations
+
 ### Feature Engineering Highlights
 
 * `delivery_days`: Elapsed days from `order_purchase_timestamp` to customer delivery.
